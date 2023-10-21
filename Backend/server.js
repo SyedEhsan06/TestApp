@@ -11,7 +11,9 @@ app.use(cors())
 connectToMongo();
 
 app.use(express.json());
-
+//
+// 
+//
 app.use('/api/auth', authRoutes);
 app.use('/api/marks', marksRoutes);
 app.use('/api/ques',quesRoutes)
