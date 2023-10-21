@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 8000;
+const port = 'https://testappmern.azurewebsites.net';
 const connectToMongo = require('./db');
 const authRoutes = require('./routes/auth');
 const quesRoutes = require('./routes/ques');
@@ -13,7 +13,7 @@ connectToMongo();
 app.use(express.json());
 //
 // 
-//
+////
 app.use('/api/auth', authRoutes);
 app.use('/api/marks', marksRoutes);
 app.use('/api/ques',quesRoutes)
