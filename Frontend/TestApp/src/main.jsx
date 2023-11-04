@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
 import "./index.css";
 import {
   Route,
@@ -15,7 +14,7 @@ import Test from "./components/Test/Test.jsx";
 import Stats from "./components/Stats/Stats.jsx";
 import Quiz from "./components/Quiz/Quiz.jsx";
 import Login from "./components/Login/Login.jsx";
-import Signup from "./components/SignUp/Signup.jsx";
+import Signup from "./components/Signup/Signup.jsx";
 import Protected from "./components/Protected/Protected.jsx";
 import { Provider } from "react-redux";
 import { store } from "./Redux/store.js";
