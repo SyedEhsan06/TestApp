@@ -80,8 +80,11 @@ const [optionss, setoptionss] = useState([])
 
       const response = await fetch(
         "https://test-app-backend-xdeo.onrender.com/api/marks/postmarks",
+
         {
           method: "POST",
+          mode: "no-cors",
+
           headers: {
             "Content-Type": "application/json",
             "auth-token": localStorage.getItem("token"),

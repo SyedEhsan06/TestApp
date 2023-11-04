@@ -19,6 +19,7 @@ const Signup = () => {
       }),
     });
     const jsonData = await response.json();
+    
     if (jsonData.success) {
       localStorage.setItem("token", jsonData.Authtoken);
       navigate("/");
