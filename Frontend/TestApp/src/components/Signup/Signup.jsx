@@ -6,8 +6,9 @@ const Signup = () => {
   const [user, setUser] = useState({ name: "", email: "", password: "" });
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("https://mern-test-app-ewyk.onrender.com/api/auth/register", {
+    const response = await fetch("https://test-app-backend-xdeo.onrender.com/api/auth/register", {
       method: "POST",
+      mode: 'no-cors',
       headers: {
         "Content-Type": "application/json",
       },
