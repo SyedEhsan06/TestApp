@@ -29,6 +29,7 @@ const Test = () => {
     const fetchSubjects = () => {
       fetch(`https://test-app-backend-xdeo.onrender.com/api/ques/subject`, {
         method: "GET",
+        mode: "no-cors",
         headers: {
           "auth-token": localStorage.getItem("token"),
         },
