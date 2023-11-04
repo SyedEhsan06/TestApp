@@ -4,7 +4,8 @@
   "description": "backend for test app",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "build":"npm install" 
   },
   "author": "Syed Ehsan",
   "license": "ISC",

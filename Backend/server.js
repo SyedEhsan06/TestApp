@@ -8,7 +8,7 @@ const quesRoutes = require('./routes/ques');
 const marksRoutes = require('./routes/marks');
 
 const cors = require('cors');
-app.use(cors());
+app.use(cors({origin: '*'}));
 connectToMongo();
 
 app.use(express.json());
