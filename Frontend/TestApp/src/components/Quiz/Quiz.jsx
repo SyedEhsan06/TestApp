@@ -82,7 +82,7 @@ const [optionss, setoptionss] = useState([])
 
         {
           method: "POST",
-          mode: "no-cors",
+          
 
           headers: {
             "Content-Type": "application/json",
@@ -121,7 +121,7 @@ const [optionss, setoptionss] = useState([])
         "https://test-app-backend-xdeo.onrender.com/api/marks/postmarks",
         {
           method: "POST",
-          mode: "no-cors",
+          
 
           headers: {
             "Content-Type": "application/json",
