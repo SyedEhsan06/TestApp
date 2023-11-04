@@ -6,7 +6,7 @@ const Login = () => {
 const navigate = useNavigate()
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("https://mern-test-app-ewyk.onrender.com/api/auth/login", {
+    const response = await fetch("https://test-app-backend-xdeo.onrender.com/api/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

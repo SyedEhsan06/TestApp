@@ -5,7 +5,7 @@ const Stats = () => {
     const fetchAllUsers = async () => {
       try {
         const response = await fetch(
-          "https://mern-test-app-ewyk.onrender.com/api/marks/results",
+          "https://test-app-backend-xdeo.onrender.com/api/marks/results",
           {
             method: "GET",
             headers: {

@@ -79,7 +79,7 @@ const [optionss, setoptionss] = useState([])
       setPostData(updatedPostData);
 
       const response = await fetch(
-        "https://mern-test-app-ewyk.onrender.com/api/marks/postmarks",
+        "https://test-app-backend-xdeo.onrender.com/api/marks/postmarks",
         {
           method: "POST",
           headers: {
@@ -116,7 +116,7 @@ const [optionss, setoptionss] = useState([])
       setPostData(updatedPostData);
 
       const response = await fetch(
-        "https://mern-test-app-ewyk.onrender.com/api/marks/postmarks",
+        "https://test-app-backend-xdeo.onrender.com/api/marks/postmarks",
         {
           method: "POST",
           headers: {

@@ -25,7 +25,7 @@ const Navbar = () => {
     const fetchUserData = async () => {
       const authToken = localStorage.getItem("token");
       try {
-        const response = await fetch('https://mern-test-app-ewyk.onrender.com/api/auth/getuser', {
+        const response = await fetch('https://test-app-backend-xdeo.onrender.com/api/auth/getuser', {
           method: 'GET',
           headers: {
             'auth-token': authToken,
