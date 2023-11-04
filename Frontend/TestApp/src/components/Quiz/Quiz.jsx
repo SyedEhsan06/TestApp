@@ -6,7 +6,7 @@ import { isEqual } from "lodash";
 
 const Quiz = () => {
   const location = useLocation()
-  console.log(location.state)
+  
   let subject = location.state.chapter
   const [postData, setPostData] = useState({
     marks: 0,
@@ -32,21 +32,21 @@ const [optionss, setoptionss] = useState([])
   }
 
   const q = ques.data.map((data, index) => data);
-console.log(q[currentQues])
+
   const setQues = (action) => {
     if (currentQues < q.length - 1 && action === currentQues + 1) {
       setcurrentQues(action);
     } else if (currentQues < q.length && action === currentQues - 1) {
       setcurrentQues(action);
-      console.log(currentQues)
-      console.log(selectedOption)
+      
+      
     }
   };
 
   const handleOptionChange = (index) => {
     if (selectedOption === index + 1) {
       setSelectedOption(null);
-      console.log(selectedOption)
+      
       setscore(score)
     } else {
       setSelectedOption(index + 1);
@@ -55,7 +55,7 @@ console.log(q[currentQues])
 
   const handleSubmit = () => {
     if (selectedOption === getCorrectOptionIndex() ) {
-      console.log("Siuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu");
+      
       setscore(score + 10);
       setSelectedOption(null);
 
@@ -65,7 +65,7 @@ console.log(q[currentQues])
 
   const getResults = async () => {
     if (selectedOption === getCorrectOptionIndex()) {
-      console.log("Siuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu");
+      
       const newScore = score + 10;
 
       setscore(newScore);
@@ -74,7 +74,7 @@ console.log(q[currentQues])
         ...postData,
         marks: newScore,
         question: subject,
-        fullmarks: 100,
+        fullmarks: q.length*10,
       };
       setPostData(updatedPostData);
 
@@ -95,14 +95,14 @@ console.log(q[currentQues])
       }
 
       const data = await response.json();
-      console.log("POST request successful:", data);
+      
 
       if (data) {
         setresultShow(true);
       }
     }
     else{
-      console.log("Siuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu");
+      
       const newScore = score;
 
       setscore(newScore);
@@ -111,7 +111,7 @@ console.log(q[currentQues])
         ...postData,
         marks: newScore,
         question: subject,
-        fullmarks: 100,
+        fullmarks: q.length*10,
       };
       setPostData(updatedPostData);
 
@@ -132,7 +132,7 @@ console.log(q[currentQues])
       }
 
       const data = await response.json();
-      console.log("POST request successful:", data);
+      
 
       if (data) {
         setresultShow(true);
@@ -147,8 +147,8 @@ console.log(q[currentQues])
     );
   };
 
-  console.log("Correct Answer", getCorrectOptionIndex());
-  console.log("Selected Answer", selectedOption);
+  
+  
 
   return (
     <>
@@ -171,7 +171,7 @@ console.log(q[currentQues])
               {q[currentQues].options.map((option, index) => (
                 <div
                   key={index}
-                  className={`btn border hover:text-white hover:bg-slate-700  border-black w-[70vw] p-3 text-left text-black ${
+                  className={`btn border hover:text-white hover:bg-slate-700 hover:scale-105  border-black w-[70vw] p-3 text-left text-black ${
                     selectedOption === index + 1 ? "bg-black text-white" : "bg-white"
                   }`}
                   onClick={() => handleOptionChange(index)}

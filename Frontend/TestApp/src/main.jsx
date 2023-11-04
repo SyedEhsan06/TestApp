@@ -16,7 +16,6 @@ import Adminprotected from './components/Adminroute/Adminprotected.jsx'
 import { Provider } from 'react-redux'
 import {store} from './Redux/store.js'
 import Admindashboard from './components/Admindashboard/Admindashboard.jsx'
-
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/'element={<Layout/>}>

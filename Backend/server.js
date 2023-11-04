@@ -1,22 +1,23 @@
 const express = require('express');
 const app = express();
-const port = 'https://testappmern.azurewebsites.net';
+const port = 8000; 
 const connectToMongo = require('./db');
 const authRoutes = require('./routes/auth');
 const quesRoutes = require('./routes/ques');
 const marksRoutes = require('./routes/marks');
 
-const cors = require('cors')
-app.use(cors())
+const cors = require('cors');
+app.use(cors());
 connectToMongo();
 
 app.use(express.json());
-//
-// 
-////
+
 app.use('/api/auth', authRoutes);
 app.use('/api/marks', marksRoutes);
-app.use('/api/ques',quesRoutes)
+app.use('/api/ques', quesRoutes);
+app.get('/',(req,res)=>{
+  res.send('Testing')
+})
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });

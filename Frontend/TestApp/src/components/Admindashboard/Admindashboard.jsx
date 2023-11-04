@@ -4,12 +4,39 @@
   const Admindashboard = () => {
     const [showModal, setShowModal] = useState(false);
     const navigate = useNavigate();
-    const location = useLocation();
+    const [userData, setUserData] = useState('')
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [allques, setallques] = useState([]);
-
+    useEffect(() => {
+      const fetchUserData = async () => {
+        const authToken = localStorage.getItem("token");
+        try {
+          const response = await fetch('http://localhost:8000/api/auth/getuser', {
+            method: 'GET',
+            headers: {
+              'auth-token': authToken,
+            },
+          });
+  
+          if (response.ok && !undefined) {
+            const userData = await response.json();
+            setUserData(userData); 
+          } else {
+            console.error('Failed to fetch user data');
+          }
+        } catch (error) {
+          console.error('Error fetching user data:', error);
+        }
+      };
+  
+      fetchUserData();
+      
+    }, [location.pathname=="/admindashboard"])
+    if (userData&&userData.role != "admin") {
+        navigate("/login");
+      }
     const [formData, setFormData] = useState({
       quesTitle: "",
       text: "",
@@ -49,11 +76,7 @@
         },
         body: JSON.stringify(formData),
       });
-      const json = await response.json();
-      console.log("returned", json);
-      if (json.success) {
-        console.log("success");
-      }
+      const json = await response.json();      
       setShowModal(false);
     };
 

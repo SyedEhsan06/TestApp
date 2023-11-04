@@ -23,7 +23,6 @@ const Stats = () => {
     };
     fetchAllUsers();
   }, []);
-  console.log(marks);
   return (
     <div className="min-h-screen bg-soft-gray text-soft-blue p-6">
       <div className="container mx-auto">

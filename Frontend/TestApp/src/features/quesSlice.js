@@ -8,7 +8,6 @@ export const fetchQues = createAsyncThunk('fetchQues', async ({ subject, chapter
     },
   });
   const data = await response.json();
-  console.log(data)
     return data;
 });
 

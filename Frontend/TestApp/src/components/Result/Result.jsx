@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 const Result = (props) => {
   const navigate = useNavigate();
   const { marks, fullmarks, question } = props.props;
-
   const resultStyles = {
     display: 'flex',
     flexDirection: 'column',
