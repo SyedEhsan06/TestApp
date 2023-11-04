@@ -8,7 +8,7 @@ const Signup = () => {
     e.preventDefault();
     const response = await fetch("https://test-app-backend-xdeo.onrender.com/api/auth/register", {
       method: "POST",
-      mode: 'no-cors',
+   
       headers: {
         "Content-Type": "application/json",
       },
