@@ -18,9 +18,9 @@ const Signup = () => {
         password: user.password,
       }),
     });
-    const json = await response.json();
-    if (json.success) {
-      localStorage.setItem("token", json.Authtoken);
+    const jsonData = await response.json();
+    if (jsonData.success) {
+      localStorage.setItem("token", jsonData.Authtoken);
       navigate("/");
     } else {
       alert("Wrong Credentials");
