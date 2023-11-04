@@ -13,7 +13,7 @@
       const fetchUserData = async () => {
         const authToken = localStorage.getItem("token");
         try {
-          const response = await fetch('http://localhost:8000/api/auth/getuser', {
+          const response = await fetch('https://mern-test-app-ewyk.onrender.com/api/auth/getuser', {
             method: 'GET',
             headers: {
               'auth-token': authToken,
@@ -68,7 +68,7 @@
 
     const handleSubmit = async (e) => {
       e.preventDefault();
-      const response = await fetch("http://localhost:8000/api/ques/create", {
+      const response = await fetch("https://mern-test-app-ewyk.onrender.com/api/ques/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -178,7 +178,7 @@
       const fetchAllUsers = async () => {
         try {
           const response = await fetch(
-            "http://localhost:8000/api/auth/allUsers",
+            "https://mern-test-app-ewyk.onrender.com/api/auth/allUsers",
             {
               method: "GET",
               headers: {
@@ -203,7 +203,7 @@
       const fetchAllQues = async () => {
         try {
           const response = await fetch(
-            "http://localhost:8000/api/ques/allQuestions",
+            "https://mern-test-app-ewyk.onrender.com/api/ques/allQuestions",
             {
               method: "GET",
               headers: {
@@ -225,7 +225,7 @@
     const deleteIt = async (id) => {
       try {
         const response = await fetch(
-          `http://localhost:8000/api/ques/deleteQues/${id}`,
+          `https://mern-test-app-ewyk.onrender.com/api/ques/deleteQues/${id}`,
           {
             method: "DELETE",
             headers: {

@@ -11,7 +11,7 @@ const Test = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     const fetchTitleQues = () => {
-      fetch(`http://localhost:8000/api/ques/chapters/${param}`, {
+      fetch(`https://mern-test-app-ewyk.onrender.com/api/ques/chapters/${param}`, {
         method: "GET",
         headers: {
           "auth-token": localStorage.getItem("token"),
@@ -25,7 +25,7 @@ const Test = () => {
   }, [param]);
   useEffect(() => {
     const fetchSubjects = () => {
-      fetch(`http://localhost:8000/api/ques/subject`, {
+      fetch(`https://mern-test-app-ewyk.onrender.com/api/ques/subject`, {
         method: "GET",
         headers: {
           "auth-token": localStorage.getItem("token"),

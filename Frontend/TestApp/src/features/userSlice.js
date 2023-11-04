@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const userFetch = createAsyncThunk('user', async () => {
-  const response = await fetch(`http://localhost:8000/api/auth/getuser`, {
+  const response = await fetch(`https://mern-test-app-ewyk.onrender.com/api/auth/getuser`, {
     method: 'GET',
     headers: {
       'auth-token': localStorage.getItem("token"),
