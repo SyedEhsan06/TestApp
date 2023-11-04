@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import Result from "../Result/Result";
-import { isEqual } from "lodash";
 
 const Quiz = () => {
   const location = useLocation()
@@ -122,6 +121,8 @@ const [optionss, setoptionss] = useState([])
         "https://test-app-backend-xdeo.onrender.com/api/marks/postmarks",
         {
           method: "POST",
+          mode: "no-cors",
+
           headers: {
             "Content-Type": "application/json",
             "auth-token": localStorage.getItem("token"),
