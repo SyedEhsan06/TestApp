@@ -66,12 +66,12 @@ const Test = () => {
             s === param
               ? "bg-base-300 border-2 border-white"
               : "bg-base-content dark:bg-base-200"
-          } mt-1 hover:bg-base-100 text-daisy-6 hover:scale-105 hover:cursor-pointer border content text-center hover:text-base-content items-center flex justify-center w-full h-12 border-b border-base-300 dark:border-gray-700 rounded text-lg active:scale-95 dark:hover:bg-base-300`}
+          } mt-1  text-daisy-6 hover:scale-105 hover:cursor-pointer border content text-center hover:text-base-content items-center flex justify-center w-full h-12 border-b border-base-300 dark:border-gray-700 rounded text-lg active:scale-95 dark:hover:bg-base-300`}
         >
           <h3 className={`${
             s === param
               ? "text-base-content text-xl bg-base-200"
-              : "text-base-200 hover:text-base-content"
+              : "text-base-200 hover:text-white"
           } text-daisy-11 font-bold `}
           >
             {s}
@@ -80,6 +80,7 @@ const Test = () => {
       </div>
     ))}
 </div>
+
 
 
       </div>
