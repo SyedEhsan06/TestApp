@@ -156,71 +156,72 @@ const [optionss, setoptionss] = useState([])
 
   return (
     <>
-    {resultShow === false ? (
-      <div className="maindiv w-full h-screen flex justify-center items-center">
-        <div className="border h-[80vh] cont border-black p-4 w-[80vw] bg-slate-900 text-white text-lg relative">
-          <div className="timeComponent w-full h-16 mb-4 flex justify-between">
-            <div className="time bg-red-400 w-16 h-16 text-center flex justify-center items-center font-bold text-white rounded-full">
-              Q{currentQues + 1}
-            </div>
-            <div className="time bg-emerald-400 w-32 h-16 text-center flex justify-center items-center font-bold text-white rounded-full">
-              Score: {score}
-            </div>
+  {resultShow === false ? (
+    <div className="maindiv w-full min-h-screen flex justify-center items-center">
+      <div className="border w-[90%] md:w-[80%] xl:w-[60%] cont border-black p-4 bg-slate-900 text-white text-lg relative">
+        <div className="timeComponent w-full h-16 mb-4 flex flex-col md:flex-row justify-between items-center">
+          <div className="time bg-red-400 w-16 h-16 text-center flex justify-center items-center font-bold text-white rounded-full mb-4 md:mb-0">
+            Q{currentQues + 1}
           </div>
-          <div className="items-center main flex flex-col gap-4">
-            <div className="ques text-left mb-6">
-              <h1 className="quesText text-xl">{q[currentQues].quesTitle}</h1>
-            </div>
-            <div className="options flex flex-col gap-3">
-              {q[currentQues].options.map((option, index) => (
-                <div
-                  key={index}
-                  className={`btn border hover:text-white hover:bg-slate-700 hover:scale-105  border-black w-[70vw] p-3 text-left text-black ${
-                    selectedOption === index + 1 ? "bg-black text-white" : "bg-white"
-                  }`}
-                  onClick={() => handleOptionChange(index)}
-                >
-                  {option.text}
-                </div>
-              ))}
-            </div>
+          <div className="time bg-emerald-400 w-full md:w-32 h-16 text-center flex justify-center items-center font-bold text-white rounded-full">
+            Score: {score}
           </div>
-          <div className="pagination mt-6">
-            <div className="flex justify-center items-center m-12 w-[70vw]">
-              {selectedOption === null ? (
-                <button
-                  className="btn btn-outline h-[9vh] w-[12vw]"
-                  onClick={() => setQues(currentQues + 1)}
-                >
-                  Next
-                </button>
-              ) : (
-                <>
-                  {currentQues === q.length - 1 ? (
-                    <button
-                      className="btn btn-success"
-                      onClick={getResults}
-                    >
-                      Get Results
-                    </button>
-                  ) : (
-                    <button
-                      className="btn btn-success"
-                      onClick={() => handleSubmit()}
-                    >
-                      Submit
-                    </button>
-                  )}
-                </>
-              )}
-            </div>
+        </div>
+        <div className="items-center main flex flex-col gap-4">
+          <div className="ques text-left mb-6">
+            <h1 className="quesText text-xl">{q[currentQues].quesTitle}</h1>
+          </div>
+          <div className="options flex flex-col gap-3">
+            {q[currentQues].options.map((option, index) => (
+              <div
+                key={index}
+                className={`btn border hover:text-white hover:bg-slate-700 hover:scale-105  border-black w-full p-3 text-left text-black ${
+                  selectedOption === index + 1 ? "bg-black text-white" : "bg-white"
+                }`}
+                onClick={() => handleOptionChange(index)}
+              >
+                {option.text}
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="pagination mt-6">
+          <div className="flex flex-col md:flex-row justify-center items-center m-4 md:m-12">
+            {selectedOption === null ? (
+              <button
+                className="btn btn-outline h-12 md:h-[9vh] w-full md:w-[12vw] mb-2 md:mb-0"
+                onClick={() => setQues(currentQues + 1)}
+              >
+                Next
+              </button>
+            ) : (
+              <>
+                {currentQues === q.length - 1 ? (
+                  <button
+                    className="btn btn-success w-full"
+                    onClick={getResults}
+                  >
+                    Get Results
+                  </button>
+                ) : (
+                  <button
+                    className="btn btn-success w-full"
+                    onClick={() => handleSubmit()}
+                  >
+                    Submit
+                  </button>
+                )}
+              </>
+            )}
           </div>
         </div>
       </div>
-    ) : (
-      <Result props={postData} />
-    )}
-  </>
+    </div>
+  ) : (
+    <Result props={postData} />
+  )}
+</>
+
   
   );
 };
