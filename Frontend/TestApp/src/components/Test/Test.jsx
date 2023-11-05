@@ -58,20 +58,30 @@ const Test = () => {
         <div className="line w-full h-[2px] bg-blue-300 dark:bg-blue-700"></div>
   
         <div className="sidemain">
-          {subjects &&
-            subjects.map((s, index) => (
-              <div className="flex flex-col gap-3">
-                <div
-                  onClick={() => setparam(s)}
-                  className={`${
-                    s == param ? " bg-base-300  border-2 border-white " : null
-                  } mt-1 hover:bg-base-100 hover:scale-105 hover:cursor-pointer border content text-center hover:text-base-content items-center flex justify-center w-full h-12 border-b border-base-300  dark:border-gray-700 bg-base-content dark:bg-base-200 rounded text-lg active:scale-95 dark:hover:bg-base-300 `}
-                >
-                  <h3 className={`${s == param ? "text-base-content text-xl bg-base-200" : 'text-base-200 hover:text-base-content'} text-base-300`}>{s}</h3>
-                </div>
-              </div>
-            ))}
+  {subjects &&
+    subjects.map((s, index) => (
+      <div className="flex flex-col gap-3" key={index}>
+        <div
+          onClick={() => setparam(s)}
+          className={`${
+            s === param
+              ? "bg-base-300 border-2 border-white"
+              : "bg-base-content dark:bg-base-200"
+          } mt-1 hover:bg-base-100 text-daisy-6 hover:scale-105 hover:cursor-pointer border content text-center hover:text-base-content items-center flex justify-center w-full h-12 border-b border-base-300 dark:border-gray-700 rounded text-lg active:scale-95 dark:hover:bg-base-300`}
+        >
+          <h3 className={`${
+            s === param
+              ? "text-base-content text-xl bg-base-200"
+              : "text-base-200  hover:text-base-content"
+          } text-daisy-11 font-bold `}
+          >
+            {s}
+          </h3>
         </div>
+      </div>
+    ))}
+</div>
+
       </div>
   
       {/* Right Main Content */}
