@@ -1,6 +1,6 @@
   import React, { useEffect, useState } from "react";
   import { useLocation, useNavigate } from "react-router-dom";
-
+import './admindashboard.css'
   const Admindashboard = () => {
     const [showModal, setShowModal] = useState(false);
     const navigate = useNavigate();
@@ -248,7 +248,7 @@
     };
 
     return (
-      <div className={`base-200 w-full h-[300vh]  ${showModal ? 'overflow-hidden' : ''}`}>
+      <div className={`base-200 w-full h-full  ${showModal ? 'overflow-hidden' : ''}`}>
         <div className={`flex items-center justify-center gap-7 ${showModal ? 'blur-sm pointer-events-none' : ''}`}>
           <div className="container text-emerald-800 font-bold text-center bg-white w-40 h-20">
             <h1>Test</h1>
@@ -295,9 +295,9 @@
         )}
         <div
           className={`right main h-full rounded-xl   ${showModal ? 'blur-sm pointer-events-none' : ''} `}
-          style={{ width: "100%" }}
+          style={{ width: "100%",display:"flex",justifyContent:'center' }}
         >
-        <div className="card-container container flex flex-col mt-4 space-y-4 ml-3 overflow-x-hidden" style={{height:'98%'}}>
+        <div style={{padding:'6vh 1vh'}} className="card-container container flex flex-col mt-4 space-y-4 ml-3 overflow-x-hidden">
   {allques &&
     allques.map((question, index) => (
       <div
