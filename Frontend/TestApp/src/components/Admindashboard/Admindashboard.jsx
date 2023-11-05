@@ -245,10 +245,10 @@ import './admindashboard.css'
       };
       fetchAllQues();
     }, [handleSubmit]);
-    const deleteIt = async (id) => {
+    const deleteIt = async (did) => {
       try {
         const response = await fetch(
-          `https://test-app-backend-xdeo.onrender.com/api/ques/deleteQues/${id}`,
+          `https://test-app-backend-xdeo.onrender.com/api/ques/deleteQues/${did}`,
           {
             method: "DELETE",
             headers: {
