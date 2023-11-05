@@ -198,10 +198,10 @@ import './admindashboard.css'
       };
       fetchAllUsers();
     }, [users]);
-    const deleteUSER = async (id) => {
+    const deleteUSER = async (did) => {
       try {
         const response = await fetch(
-          `http://localhost:8000/api/auth/deleteUsers/${id}`,
+          `https://test-app-backend-xdeo.onrender.com/api/auth/deleteUsers/${did}`,
           {
             method: "DELETE",
             headers: {
@@ -245,10 +245,10 @@ import './admindashboard.css'
       };
       fetchAllQues();
     }, [handleSubmit]);
-    const deleteIt = async (did) => {
+    const deleteIt = async (id) => {
       try {
         const response = await fetch(
-          `https://test-app-backend-xdeo.onrender.com/api/ques/deleteQues/${did}`,
+          `https://test-app-backend-xdeo.onrender.com/api/ques/deleteQues/${id}`,
           {
             method: "DELETE",
             headers: {
@@ -262,11 +262,11 @@ import './admindashboard.css'
         }
 
         const updatedQuestions = allques.filter(
-          (question) => question._id !== id
+          (question) => question._id !== did
         );
         setallques(updatedQuestions);
       } catch (error) {
-        console.error("Error deleting question:", error);
+        console.error("Error deleting question:");
       }
     };
 const userResult = (id) => {
