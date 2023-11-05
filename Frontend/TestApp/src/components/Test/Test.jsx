@@ -64,10 +64,10 @@ const Test = () => {
                 <div
                   onClick={() => setparam(s)}
                   className={`${
-                    s == param ? "bg-base-300 border border-white" : null
-                  } mt-1 hover:bg-base-100 hover:scale-105 hover:cursor-pointer border content text-center items-center flex justify-center w-full h-12 border-b border-base-300 dark:border-gray-700 bg-base-content dark:bg-gray-700 rounded text-lg active:scale-95 dark:hover:bg-gray-700 text-blue-900 dark:text-gray-100`}
+                    s == param ? " bg-base-300 text-base-content border-2 border-white " : null
+                  } mt-1 hover:bg-base-100 hover:scale-105 hover:cursor-pointer border content text-center items-center flex justify-center w-full h-12 border-b border-base-300  dark:border-gray-700 bg-base-content dark:bg-base-200 rounded text-lg active:scale-95 dark:hover:bg-base-300 `}
                 >
-                  <h3 className={`${s == param ? "text-base-content" : 'text-base-300 hover:text-base-content'} dark:text-gray-100`}>{s}</h3>
+                  <h3 className={`${s == param ? "text-base-300" : 'text-base-200 hover:text-base-content'} text-base-content`}>{s}</h3>
                 </div>
               </div>
             ))}
@@ -76,15 +76,13 @@ const Test = () => {
   
       {/* Right Main Content */}
       <div className="right main lg:w-2/3 h-[90vh] p-4 rounded-xl border border-base-300 dark:border-t-gray-700 text-base-200 dark:text-gray-200" style={{ width: "100%" }}>
+        <h1 className='text-base-content text-2xl font-bold'>{param}</h1>
         <div className="card-container container flex flex-col mt-4 space-y-4 ml-3 overflow-x-hidden">
           {ques &&
             ques.map((e, index) => (
               <div key={ques.length - index} className="card bg-base-content opacity-100 shadow-md p-4 flex flex-row items-center space-x-4 rounded-xl border border-daisy-3 border-r">
-                <div className="card-header w-48 h-16 bg-daisy-1 text-daisy-10 flex items-center justify-center rounded-l-xl">
-                  <h1 className="text-xl text-base-300 font-semibold">{param}</h1>
-                </div>
-                <div className="card-content flex-1 text-lg text-daisy-11 text-secondary-focus" style={{ textDecoration: "underline wavy hotpink" }}>
-                  <h3>{e}</h3>
+                <div className="card-content flex-1 justify-center items-center text-lg text-daisy-11 text-secondary-focus" style={{ textDecoration: "underline wavy hotpink" }}>
+                  <h2>{e}</h2>
                 </div>
                 <div onClick={() => routeChange(e)} className="btn w-32 h-16 rounded-r-xl btn-daisy-5 hover-bg-daisy-6">
                   Start Test

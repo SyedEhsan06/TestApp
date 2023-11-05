@@ -80,7 +80,7 @@ const Navbar = () => {
                   <Link to="./Test">Test</Link>
                 </li>
                 <li>
-                  <Link to="./Stats">Stats</Link>
+                  <button onClick={()=>navigate('/stats',{state:{api:"https://test-app-backend-xdeo.onrender.com/api/marks/results"}})}>Stats</button>
                 </li>
               </ul>
             </div>

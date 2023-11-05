@@ -197,8 +197,31 @@ import './admindashboard.css'
         }
       };
       fetchAllUsers();
-    }, []);
+    }, [users]);
+    const deleteUSER = async (id) => {
+      try {
+        const response = await fetch(
+          `http://localhost:8000/api/auth/deleteUsers/${id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              "auth-token": localStorage.getItem("token"),
+            },
+          }
+        );
+        if (!response.ok) {
+          throw new Error("Failed to delete question");
+        }
 
+        const users = allques.filter(
+          (user) => user._id !== id
+        );
+        setUsers(users);
+      } catch (error) {
+        console.error("Error deleting user:", error);
+      }
+    };
     useEffect(() => {
       const fetchAllQues = async () => {
         try {
@@ -246,7 +269,13 @@ import './admindashboard.css'
         console.error("Error deleting question:", error);
       }
     };
+const userResult = (id) => {
+navigate('/stats',{state:{api:`https://test-app-backend-xdeo.onrender.com/api/marks/results/${id}`}})
 
+}
+const allresults = () => {
+  navigate('/stats',{state:{api:`https://test-app-backend-xdeo.onrender.com/api/marks/allresults`}})
+}
     return (
       <div className={`base-200 w-full h-full  ${showModal ? 'overflow-hidden' : ''}`}>
         <div className={`flex items-center justify-center gap-7 ${showModal ? 'blur-sm pointer-events-none' : ''}`}>
@@ -278,6 +307,8 @@ import './admindashboard.css'
                   <th>Name</th>
                   <th>Email</th>
                   <th>Role</th>
+                  <th>Results</th>
+                  <th>Delete User</th>
                 </tr>
               </thead>
               <tbody>
@@ -287,8 +318,12 @@ import './admindashboard.css'
                     <td>{data.name}</td>
                     <td>{data.email}</td>
                     <td>{data.role}</td>
+                  <td><button className="bg-green-400 text-stone-50 p-4 shadow-xl" onClick={()=>userResult(data._id)}>Result {data.name} </button></td>
+                    <td><button className="bg-red-400 text-stone-50 p-4 shadow-xl" onClick={()=>deleteUSER(data._id)}>Delete {data.name} </button></td>
+                  
                   </tr>
                 ))}
+                <tr><button className="bg-green-400 text-stone-50 p-4 w-full shadow-xl" onClick={()=>allresults()}>All Results</button></tr>
               </tbody>
             </table>
           </div>

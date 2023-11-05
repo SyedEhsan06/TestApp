@@ -34,22 +34,23 @@ const Result = (props) => {
     return bgColors[randomIndex];
   };
 
-  const items = [
-    { text: 'Your Marks:', value: marks },
-    { text: 'Full Marks:', value: fullmarks },
-    { text: 'Test Topic:', value: question },
-  ];
+  // const items = [
+  //   { text: 'Your Marks:', value: marks },
+  //   { text: 'Full Marks:', value: fullmarks },
+  //   { text: 'Test Topic:', value: question },
+  // ];
 
   return (
     <div className="bg-gradient-to-t from-blue-500 to-blue-700 min-h-screen flex items-center justify-center">
       <div className="bg-white rounded-lg shadow-2xl p-8 text-gray-800 w-4/5 md:w-3/5 lg:w-2/5" style={resultStyles}>
         <h1 className="text-4xl font-bold text-center text-indigo-800 mb-8 underline">Test Results</h1>
-        {items.map((item, index) => (
-          <div key={index} style={{ ...itemStyles, background: generateRandomColor() }}>
-            <span style={{ color: 'white', fontWeight: 'bold' }}>{item.text}</span>
-            <span style={{ color: 'white', fontWeight: 'bold' }}>{item.value}</span>
+       
+          <div style={{ ...itemStyles, background: generateRandomColor() ,display:'flex',flexDirection:'column',alignItems:'center'}}>
+            <span className='text-xl' style={{ color: 'white', fontWeight: 'bold' }}>Your Marks : <span className='text-2xl text-slate-800'>{marks>fullmarks?fullmarks:marks}</span></span>
+            <span className='text-xl' style={{ color: 'white', fontWeight: 'bold' }}>Full Marks: <span className='text-2xl text-slate-800'>{fullmarks}</span></span>
+            <span className='text-xl' style={{ color: 'white', fontWeight: 'bold' }}>Question: <span className='text-2xl text-slate-800'>{question}</span></span>
+
           </div>
-        ))}
         <button
           onClick={() => navigate('/test')}
           className="bg-indigo-800 text-white py-3 w-full rounded-full text-xl font-semibold transition duration-300 transform hover:scale-105 hover:bg-indigo-900"

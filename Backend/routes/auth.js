@@ -253,5 +253,14 @@ router.get('/allUsers', isAdmin, async (req, res) => {
         res.status(500).json({ error: 'Error retrieving users and counting them' });
     }
 });
+// Delete USER
+router.delete('/deleteUsers/:id', isAdmin, async (req, res) => {
+   try {
+    let deleteUser = await User.findByIdAndDelete(req.params.id)
+    res.send(deleteUser)
+   } catch (error) {
+    console.log(error)
+   }
+});
 
 module.exports = router;

@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 const Stats = () => {
+  const [apis, setapi] = useState('')
+const location = useLocation()
+  let api = location.state.api
   const [marks, setmarks] = useState([]);
   useEffect(() => {
+    setapi(api)
+    console.log(apis)
     const fetchAllUsers = async () => {
       try {
         const response = await fetch(
-          "https://test-app-backend-xdeo.onrender.com/api/marks/results",
+          // "https://test-app-backend-xdeo.onrender.com/api/marks/results",
+          apis,
           {
             method: "GET",
             headers: {
@@ -22,7 +29,7 @@ const Stats = () => {
       }
     };
     fetchAllUsers();
-  }, []);
+  }, [apis]);
   return (
     <div className="min-h-screen bg-soft-gray text-soft-blue p-6">
       <div className="container mx-auto">

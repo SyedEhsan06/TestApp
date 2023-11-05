@@ -3,6 +3,7 @@ const router = express.Router();
 const Marks = require("../Schema/marksSchema");
 const fetchuser = require("../middleware/fetchuser");
 const User = require("../Schema/userSchema");
+const isAdmin = require("../middleware/isAdmin");
 // POST route for crseating and storing user marks
 router.post('/postmarks', fetchuser, async (req, res) => {
     try {
@@ -30,5 +31,19 @@ router.post('/postmarks', fetchuser, async (req, res) => {
 router.get('/results',fetchuser,async(req,res)=>{
     const marks  =await Marks.find({user:req.user.id})
     res.json(marks)
+})
+//////////////////
+router.get('/results/:id',isAdmin,async(req,res)=>{
+    const marks  =await Marks.find({user:req.params.id})
+    res.json(marks)
+})
+//////////////////
+router.get('/allresults',isAdmin,async(req,res)=>{
+    try {
+        const marks  =await Marks.find()
+    res.json(marks)
+    } catch (error) {
+     console.log(error)   
+    }
 })
 module.exports = router;
