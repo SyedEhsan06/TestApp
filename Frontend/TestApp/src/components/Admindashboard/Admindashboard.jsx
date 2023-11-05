@@ -294,7 +294,7 @@
           </div>
         )}
         <div
-          className={`right main h-full rounded-xl border border-t-white  ${showModal ? 'blur-sm pointer-events-none' : ''} `}
+          className={`right main h-full rounded-xl   ${showModal ? 'blur-sm pointer-events-none' : ''} `}
           style={{ width: "100%" }}
         >
           <div className="card_container container flex flex-col mt-5 gap-4 ml-3 overflow-x-hidden items-center">
@@ -305,19 +305,19 @@
                   className="card bg-white w-[170vh] h-20 rounded-xl flex flex-row justify-between gap-20 items-center"
                 >
                   <div className="headtext text-xl w-52 h-full bg-[#ee9b00] text-center text-white rounded-s-xl">
-                    <h1 className="text-center mt-4">{question.quesTitle}</h1>
+                    <h1 className="text-center mt-4">{question.subject}</h1>
                   </div>
                   <div
                     className="topictext text-slate-950 text-xl"
                     style={{ textDecoration: "underline wavy hotpink" }}
                   >
-                    <h3>{question.text}</h3>
+                    <h3>{question.quesTitle}</h3>
                   </div>
                   <div
                     className="fullmarkstest text-slate-950 text-xs"
                     style={{ textDecoration: "underline overline coral" }}
                   >
-                    {question.subject}
+                    {question.text}
                   </div>
                   {/* <div
                     onClick={(id) => edit()}
