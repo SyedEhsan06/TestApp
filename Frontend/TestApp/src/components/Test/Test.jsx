@@ -76,7 +76,7 @@ const Test = () => {
   
       {/* Right Main Content */}
       <div className="right main lg:w-2/3 h-[90vh] p-4 rounded-xl border border-base-300 dark:border-t-gray-700 text-base-200 dark:text-gray-200" style={{ width: "100%" }}>
-        <div className="card-container container flex flex-col mt-5 space-y-4 ml-3 overflow-x-hidden">
+        <div className="card-container container flex flex-col mt-4 space-y-4 ml-3 overflow-x-hidden">
           {ques &&
             ques.map((e, index) => (
               <div key={ques.length - index} className="card bg-base-content opacity-100 shadow-md p-4 flex flex-row items-center space-x-4 rounded-xl border border-daisy-3 border-r">
