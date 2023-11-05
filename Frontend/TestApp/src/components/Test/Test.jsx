@@ -56,7 +56,6 @@ const Test = () => {
           </h1>
         </div>
         <div className="line w-full h-[2px] bg-blue-300 dark:bg-blue-700"></div>
-  
         <div className="sidemain">
   {subjects &&
     subjects.map((s, index) => (
@@ -72,7 +71,7 @@ const Test = () => {
           <h3 className={`${
             s === param
               ? "text-base-content text-xl bg-base-200"
-              : "text-base-200  hover:text-base-content"
+              : "text-base-200 hover:text-base-content"
           } text-daisy-11 font-bold `}
           >
             {s}
@@ -81,6 +80,7 @@ const Test = () => {
       </div>
     ))}
 </div>
+
 
       </div>
   
