@@ -7,8 +7,7 @@ const location = useLocation()
   const [marks, setmarks] = useState([]);
   useEffect(() => {
     setapi(api)
-    console.log(apis)
-    const fetchAllUsers = async () => {
+      const fetchAllUsers = async () => {
       try {
         const response = await fetch(
           // "https://test-app-backend-xdeo.onrender.com/api/marks/results",
@@ -31,7 +30,7 @@ const location = useLocation()
     fetchAllUsers();
   }, [apis]);
   return (
-    <div className="min-h-screen bg-soft-gray text-soft-blue p-6">
+    <div className="min-h-screen bg-soft-gray text-soft-blue py-16">
       <div className="container mx-auto">
         <h1 className="text-3xl font-semibold text-trendy-blue mb-4">User Stats</h1>
 

@@ -49,7 +49,6 @@ const Result = (props) => {
             <span className='text-xl' style={{ color: 'white', fontWeight: 'bold' }}>Your Marks : <span className='text-2xl text-slate-800'>{marks>fullmarks?fullmarks:marks}</span></span>
             <span className='text-xl' style={{ color: 'white', fontWeight: 'bold' }}>Full Marks: <span className='text-2xl text-slate-800'>{fullmarks}</span></span>
             <span className='text-xl' style={{ color: 'white', fontWeight: 'bold' }}>Question: <span className='text-2xl text-slate-800'>{question}</span></span>
-
           </div>
         <button
           onClick={() => navigate('/test')}

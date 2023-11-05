@@ -5,7 +5,7 @@ import Result from "../Result/Result";
 
 const Quiz = () => {
   const location = useLocation()
-  
+  const [issubmit, setSubmit] = useState(false);
   let subject = location.state.chapter
   const [postData, setPostData] = useState({
     marks: 0,
@@ -63,6 +63,7 @@ const [optionss, setoptionss] = useState([])
   };
 
   const getResults = async () => {
+    setSubmit(true)
     if (selectedOption === getCorrectOptionIndex()) {
       
       const newScore = score + 10;
@@ -200,11 +201,13 @@ const [optionss, setoptionss] = useState([])
                   <button
                     className="btn btn-success w-full"
                     onClick={getResults}
+                    disabled={issubmit?true:false}
                   >
                     Get Results
                   </button>
                 ) : (
                   <button
+                   
                     className="btn btn-success w-full"
                     onClick={() => handleSubmit()}
                   >

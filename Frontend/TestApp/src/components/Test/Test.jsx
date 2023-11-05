@@ -82,7 +82,7 @@ const Test = () => {
             ques.map((e, index) => (
               <div key={ques.length - index} className="card bg-base-content opacity-100 shadow-md p-4 flex flex-row items-center space-x-4 rounded-xl border border-daisy-3 border-r">
                 <div className="card-content flex-1 justify-center items-center text-lg text-daisy-11 text-secondary-focus" style={{ textDecoration: "underline wavy hotpink" }}>
-                  <h2>{e}</h2>
+                  <h2 className='text-xl' >{e}</h2>
                 </div>
                 <div onClick={() => routeChange(e)} className="btn w-32 h-16 rounded-r-xl btn-daisy-5 hover-bg-daisy-6">
                   Start Test

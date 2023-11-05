@@ -127,7 +127,6 @@ const Navbar = () => {
                   <div onClick={()=>setparam('luxury')} className="w-5 h-5 bg-slate-900   rounded-full  cursor-pointer "></div>
                   <div onClick={()=>setparam('retro')} className="w-5 h-5 bg-[#dbc99a]  rounded-full  cursor-pointer "></div>
                   <div onClick={()=>setparam('valentine')} className="w-5 h-5 bg-error rounded-full  cursor-pointer "></div>
-                  <div onClick={()=>setparam('bumblebee')} className="w-5 h-5 bg-white  rounded-full  cursor-pointer"></div>
                   <div onClick={()=>setparam('synthwave')} className="w-5 h-5 bg-blue-900  rounded-full  cursor-pointer"></div>
 
                 </div>
