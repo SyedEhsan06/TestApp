@@ -297,43 +297,28 @@
           className={`right main h-full rounded-xl   ${showModal ? 'blur-sm pointer-events-none' : ''} `}
           style={{ width: "100%" }}
         >
-          <div className="card_container container flex flex-col mt-5 gap-4 ml-3 overflow-x-hidden items-center">
-            {allques &&
-              allques.map((question, index) => (
-                <div
-                  key={question._id}
-                  className="card bg-white w-[170vh] h-20 rounded-xl flex flex-row justify-between gap-20 items-center"
-                >
-                  <div className="headtext text-xl w-52 h-full bg-[#ee9b00] text-center text-white rounded-s-xl">
-                    <h1 className="text-center mt-4">{question.subject}</h1>
-                  </div>
-                  <div
-                    className="topictext text-slate-950 text-xl"
-                    style={{ textDecoration: "underline wavy hotpink" }}
-                  >
-                    <h3>{question.quesTitle}</h3>
-                  </div>
-                  <div
-                    className="fullmarkstest text-slate-950 text-xs"
-                    style={{ textDecoration: "underline overline coral" }}
-                  >
-                    {question.text}
-                  </div>
-                  {/* <div
-                    onClick={(id) => edit()}
-                    className="btn w-32 h-full rounded-e-lg rounded-s-none btn-info hover-bg-red-700"
-                  >
-                    Edit
-                  </div> */}
-                  <div
-                    onClick={() => deleteIt(question._id)}
-                    className="btn w-32 h-full rounded-e-lg rounded-s-none btn-error hover-bg-green-700"
-                  >
-                    Delete
-                  </div>
-                </div>
-              ))}
-          </div>
+        <div className="card-container container flex flex-col mt-4 space-y-4 ml-3 overflow-x-hidden" style={{height:'98%'}}>
+  {allques &&
+    allques.map((question, index) => (
+      <div
+        key={question._id}
+        className="card bg-base-content opacity-100 shadow-md p-4 flex flex-col lg:flex-row items-center rounded-xl border border-daisy-3 border-r mb-4"
+      >
+        <div className="card-header w-full lg:w-48 h-16 bg-daisy-1 text-daisy-10 flex items-center justify-center rounded-t-xl lg:rounded-l-xl">
+          <h1 className="text-xl text-base-300 font-semibold text-center lg:text-left">{question.subject}</h1>
+        </div>
+        <div className="card-content flex-1 text-lg text-daisy-11 text-secondary-focus p-2">
+          <h3 className="text-center lg:text-left" style={{ textDecoration: "underline wavy hotpink" }}>
+            {question.quesTitle}
+          </h3>
+        </div>
+        <div onClick={() => deleteIt(question._id)} className="btn w-full lg:w-32 h-16 rounded-b-xl lg:rounded-r-xl btn-daisy-5 hover-bg-daisy-6">
+          Delete
+        </div>
+      </div>
+    ))}
+</div>
+
         </div>
       </div>
     );
