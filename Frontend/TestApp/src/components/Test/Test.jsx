@@ -72,7 +72,7 @@ const Test = () => {
             s === param
               ? "text-base-content text-xl bg-base-200"
               : "text-base-200 hover:text-white"
-          } text-daisy-11 font-bold `}
+          } text-white bg-content font-bold `}
           >
             {s}
           </h3>
