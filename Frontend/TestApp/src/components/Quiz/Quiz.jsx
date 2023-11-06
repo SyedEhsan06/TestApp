@@ -6,6 +6,7 @@ import Result from "../Result/Result";
 const Quiz = () => {
   const location = useLocation()
   const [issubmit, setSubmit] = useState(false);
+  
   let subject = location.state.chapter
   const [postData, setPostData] = useState({
     marks: 0,
@@ -19,8 +20,8 @@ const [optionss, setoptionss] = useState([])
   const [currentQues, setcurrentQues] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);  
   const ques = useSelector((state) => state.ques);
-
-
+console.log(ques.data.length)
+  const [timeLeft, setTimeLeft] = useState(ques.data.length*10);
   if (ques !== undefined && Array.isArray(ques.data)) {
     const arr = ques.data.map((data, index) => {
       return data;
@@ -35,6 +36,8 @@ const [optionss, setoptionss] = useState([])
   const setQues = (action) => {
     if (currentQues < q.length - 1 && action === currentQues + 1) {
       setcurrentQues(action);
+      setSelectedOption(null);
+
     } else if (currentQues < q.length && action === currentQues - 1) {
       setcurrentQues(action);
       
@@ -61,6 +64,30 @@ const [optionss, setoptionss] = useState([])
     }
     setQues(currentQues + 1);
   };
+  const nextBtn = () => {
+      setscore(score);
+    setQues(currentQues + 1);
+  };
+  useEffect(() => {
+    setTimeLeft(100 * ques.data.length);
+    console.log(ques.data.length)
+    console.log(timeLeft)
+  }, [ques]);
+
+ useEffect(() => {
+    const countdownInterval = setInterval(() => {
+      if (timeLeft > 0) {
+        setTimeLeft((prevTime) => prevTime - 1);
+      } else {
+        clearInterval(countdownInterval);
+        getResults();
+      }
+    }, 1000);
+
+    return () => {
+      clearInterval(countdownInterval);
+    };
+  }, [timeLeft]);
 
   const getResults = async () => {
     setSubmit(true)
@@ -153,7 +180,6 @@ const [optionss, setoptionss] = useState([])
   };
 
   
-  
 
   return (
     <>
@@ -164,8 +190,8 @@ const [optionss, setoptionss] = useState([])
           <div className="time bg-red-400 w-16 h-16 text-center flex justify-center items-center font-bold text-white rounded-full mb-4 md:mb-0">
             Q{currentQues + 1}
           </div>
-          <div className="time bg-emerald-400 w-full md:w-32 h-16 text-center flex justify-center items-center font-bold text-white rounded-full">
-            Score: {score}
+          <div className="bg-green-400 w-12 h-12 flex justify-center items-center text-center rounded-full">
+            <h1 className="font-bold text-lg">{timeLeft}s</h1>
           </div>
         </div>
         <div className="items-center main flex flex-col gap-4">
