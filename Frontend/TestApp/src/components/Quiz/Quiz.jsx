@@ -69,7 +69,7 @@ console.log(ques.data.length)
     setQues(currentQues + 1);
   };
   useEffect(() => {
-    setTimeLeft(100 * ques.data.length);
+    setTimeLeft(10 * ques.data.length);
     console.log(ques.data.length)
     console.log(timeLeft)
   }, [ques]);
