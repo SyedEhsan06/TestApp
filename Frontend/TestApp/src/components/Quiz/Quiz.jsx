@@ -20,18 +20,18 @@ const Quiz = () => {
   const [selectedOption, setSelectedOption] = useState(null);  
   const ques = useSelector((state) => state.ques);
 console.log(ques.data.length)
-  const [timeLeft, setTimeLeft] = useState(ques.data.length*10||0);
+  const [timeLeft, setTimeLeft] = useState(ques.data.length*25||0);
   
   useEffect(() => {
     if (ques.data.length) {
-      setTimeLeft(10 * ques.data.length); // Set the initial time
+      setTimeLeft(25 * ques.data.length); // Set the initial time
       const countdownInterval = setInterval(() => {
         setTimeLeft((prevTime) => {
           const newTime = prevTime - 1;
           if (newTime <= 0) {
             clearInterval(countdownInterval);
             getResults();
-            return 0;
+            setscore()
           }
           return newTime;
         });
