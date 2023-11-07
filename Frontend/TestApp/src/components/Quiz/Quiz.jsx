@@ -13,7 +13,6 @@ const Quiz = () => {
     question:subject,
     fullmarks: 100,
   });
-const [optionss, setoptionss] = useState([])
   const [resultShow, setresultShow] = useState(false);
   const navigate = useNavigate();
   const [score, setscore] = useState(0);
@@ -21,14 +20,37 @@ const [optionss, setoptionss] = useState([])
   const [selectedOption, setSelectedOption] = useState(null);  
   const ques = useSelector((state) => state.ques);
 console.log(ques.data.length)
-  const [timeLeft, setTimeLeft] = useState(0);
+  const [timeLeft, setTimeLeft] = useState(ques.data.length*10||0);
+  
+  useEffect(() => {
+    if (ques.data.length) {
+      setTimeLeft(10 * ques.data.length); // Set the initial time
+      const countdownInterval = setInterval(() => {
+        setTimeLeft((prevTime) => {
+          const newTime = prevTime - 1;
+          if (newTime <= 0) {
+            clearInterval(countdownInterval);
+            getResults();
+            return 0;
+          }
+          return newTime;
+        });
+      }, 1000);
+  
+      // Clean up the interval when the component unmounts
+      return () => {
+        clearInterval(countdownInterval);
+      };
+    }
+  }, [ques.data.length]);
+  
   if (ques !== undefined && Array.isArray(ques.data)) {
     const arr = ques.data.map((data, index) => {
       return data;
     });
     const questions = arr.map((data) => data.quesTitle);
   } else {
-    return <div>Invalid data</div>;
+    return <div>Wait a Bit or retry</div>;
   }
 
   const q = ques.data.map((data, index) => data);
@@ -68,27 +90,8 @@ console.log(ques.data.length)
       setscore(score);
     setQues(currentQues + 1);
   };
-  useEffect(() => {
-    setTimeLeft(10 * ques.data.length);
-    console.log(ques.data.length)
-    console.log(timeLeft)
-  }, [ques]);
 
- useEffect(() => {
-    const countdownInterval = setInterval(() => {
-      if (timeLeft > 0) {
-        setTimeLeft((prevTime) => prevTime - 1);
-      } else {
-        clearInterval(countdownInterval);
-        getResults();
-      }
-    }, 1000);
-
-    return () => {
-      clearInterval(countdownInterval);
-    };
-  }, [timeLeft]);
-
+  
   const getResults = async () => {
     setSubmit(true)
     if (selectedOption === getCorrectOptionIndex()) {
