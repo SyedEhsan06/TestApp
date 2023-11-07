@@ -21,7 +21,7 @@ const [optionss, setoptionss] = useState([])
   const [selectedOption, setSelectedOption] = useState(null);  
   const ques = useSelector((state) => state.ques);
 console.log(ques.data.length)
-  const [timeLeft, setTimeLeft] = useState(ques.data.length*10);
+  const [timeLeft, setTimeLeft] = useState(0);
   if (ques !== undefined && Array.isArray(ques.data)) {
     const arr = ques.data.map((data, index) => {
       return data;
